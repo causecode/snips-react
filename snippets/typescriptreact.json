@@ -1,0 +1,78 @@
+{
+    "Arrow Function": {
+        "prefix": "arrow",
+        "body": [
+            "(${1:arguments}) => ${2:statement}"
+        ],
+        "description": "Snippet for Arrow Function"
+    },
+
+    "Sagas": {
+        "prefix": "saga",
+        "body": [
+            "export function *watch${1:WatcherFunctionName}() {",
+            "\tyield takeLatest(${2:REQUEST ACTION}, ${3:workerFunctionName});\n}\n",
+            "export function *${3:workerFunctionName}(action: IGenericAction<void>) {",
+            "\tlet response = yield call(${4|doGet,doPut,doPost,doDelete|}, '${5:endpoint}', action.successCallback, action.failureCallback);",
+            "\tif (${6:CONDITION}) {",
+            "\t\tyield put({type: ${7:SUCCESS ACTION}, payload: ${8}});",
+            "\t}\n}\n"
+        ],
+        "description": "Snippet for Saga (watcher & worker)"
+    },
+
+    "Common Imports": {
+        "prefix": "react",
+        "body": [
+            "import * as React from 'react';\nimport * as Radium from 'radium';"
+        ],
+        "description": "Snippet for default import (React & Radium)"
+    },
+
+    "Store Dispatch": {
+        "prefix": "store",
+        "body": [
+            "store.dispatch(${1|FUNCTION,genericActionToInvokeSaga(ACTION),genericActionToInvokeSaga(ACTION\\, PAYLOAD)|});"
+        ],
+        "description": "Snippet for store.dispatch"
+    },
+
+    "Unroll for jest": {
+        "prefix": "unroll",
+        "body": [
+            "unroll('it should ${1:test message here}', (",
+            "\t\tdone: () => void,",
+            "\t\targs: {${2:argument: type}\\}",
+            "): void => {",
+            "\t${3}",
+            "\tdone();",
+            "}, [ // tslint:disable-next-line",
+            "\t[${0}],",
+            "\t[],",
+            "\t[],",
+            "]);\n"
+        ],
+        "description": "Snippet for unroll (testing)"
+    },
+
+    "it for jest": {
+        "prefix": "it",
+        "body": [
+            "it('should ${1:test message here}', (): void => {",
+            "\t${2}",
+            "\t${3}",
+            "});\n"
+        ],
+        "description": "Snippet for it (testing)"
+    },
+
+    "Describe for jest": {
+        "prefix": "describe",
+        "body": [
+            "describe('Tests for ${1:MODULE NAME}', (): void => {",
+            "\t${0}",
+            "})"
+        ],
+        "description": "Snippet for describe (testing)"
+    }
+}
