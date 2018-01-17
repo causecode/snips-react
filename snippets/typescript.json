@@ -44,5 +44,72 @@
             "\t\t[${0}],\n\t\t[],\n\t\t[]\n\t]);\n});\n"
         ],
         "description": "Snippet for testing saga"
-    }    
+    },
+
+    "Print to console": {
+        "prefix": "log",
+        "body": [
+            "console.log(`$1`, $1);"
+        ],
+        "description": "Log output to console"
+    },
+
+    "Unroll for jest": {
+        "prefix": "unroll",
+        "body": [
+            "unroll('it should ${1:test message here}', (",
+            "\t\tdone: () => void,",
+            "\t\targs: {${2:argument: type}\\}",
+            "): void => {",
+            "\t${3}",
+            "\tdone();",
+            "}, [ // tslint:disable-next-line",
+            "\t[${0}],",
+            "\t[],",
+            "\t[],",
+            "]);\n"
+        ],
+        "description": "Snippet for unroll (testing)"
+    },
+
+    "Test case for Jest": {
+        "prefix": "it",
+        "body": [
+            "it('should ${1:test message here}', (): void => {",
+            "\t${2}",
+            "\t${3}",
+            "});\n"
+        ],
+        "description": "Snippet for it (testing)"
+    },
+
+    "Describe for jest": {
+        "prefix": "describe",
+        "body": [
+            "describe('Tests for ${1:MODULE NAME}', (): void => {",
+            "\t${0}",
+            "})"
+        ],
+        "description": "Snippet for the Jest test suite"
+    },
+
+    "Expect to be called": {
+        "prefix": "called",
+        "body": "expect($1).toBeCalled();"
+    },
+
+    "Expect to equal": {
+        "prefix": "equal",
+        "body": "expect($1).toEqual();"
+    },
+
+    "Expect to be truthy": {
+        "prefix": "truthy",
+        "body": "expect($1).toBeTruthy();"
+    },
+
+    "Expect to be falsy": {
+        "prefix": "falsy",
+        "body": "expect($1).toBeFalsy();"
+    }
 }
